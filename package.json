@@ -1,0 +1,46 @@
+{
+  "name": "orders-api",
+  "version": "0.1.0",
+  "description": "Api that handles operations related to orders",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DOTENV_CONFIG_PATH=dev.env ts-node -r dotenv/config scripts/local.ts",
+    "dev-watch": "DOTENV_CONFIG_PATH=dev.env nodemon -r dotenv/config --watch src --exec 'ts-node' scripts/local.ts",
+    "types-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint-fix": "eslint src --ext .ts --fix",
+    "build": "esbuild scripts/local.ts --bundle --platform=node --target=node14.0 --outfile=build/output.js",
+    "start": "DOTENV_CONFIG_PATH=dev.env node -r dotenv/config build/output.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/restox/OrdersApi.git"
+  },
+  "author": "Vinayak Nivalkar <vinayak.nivalkar121@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/restox/OrdersApi/issues"
+  },
+  "homepage": "https://github.com/restox/OrdersApi#readme",
+  "dependencies": {
+    "@fastify/cors": "^8.2.1",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "fastify": "^4.14.1",
+    "mongoose": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.17.11",
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  }
+}
